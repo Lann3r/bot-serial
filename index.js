@@ -32,7 +32,13 @@ const RefBtn = {
         ]
     })
 }
-
+const StickerBtn = {
+    reply_markup: JSON.stringify({
+        inline_keyboard: [
+            [{ text: 'Заказать стикер бесплатно👈', url: 'https://2go.pro/v2tF', callback_data: 'sticker' }]
+        ]
+    })
+}
 
 
 bot.on('message', async msg => {
@@ -66,7 +72,9 @@ bot.on('callback_query', async msg => {
     if (data == 3) {
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/7o2o/z9Rvx8QpS')
         await bot.sendMessage(chatId, '3 серия☝', playerBtn)
-        await this.wait();
+        await bot.sendMessage(chatId, '❤️Также хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️' , StickerBtn)
+        
+        
 
 
     }
@@ -96,6 +104,7 @@ bot.on('callback_query', async msg => {
         await bot.sendMessage(chatId, 'Получи от нас дебетовую карту и стикеры ❤️ для твоего телефона совершенно бесплатно!😱 \n - Вечное бесплатное обслуживание \n - Кэшбэк до 100 % в барабане, 5 % на категории на выбор и 1 % на всё \n - Платежи и переводы без комиссии'
           , RefBtn)
     }
+   
     // bot.sendMessage(chatId, `Ты нажал кнопку ${data}`)
     if (data === 'menu') {
         await bot.sendMessage(chatId, 'Выберите серию', Buttons)
