@@ -13,6 +13,8 @@ const Buttons = {
         inline_keyboard: [
             [{ text: '1 серия', callback_data: 1 }, { text: '2 серия', callback_data: 2 }, { text: '3 серия', callback_data: 3 }, { text: '4 серия', callback_data: 4 }],
             [{ text: '5 серия', callback_data: 5 }, { text: '6 серия', callback_data: 6 }, { text: '7 серия', callback_data: 7 }, { text: '8 серия', callback_data: 8 }],
+            [{ text: '9 серия', callback_data: 9 }, { text: '10 серия', callback_data: 10 }, { text: '11 серия', callback_data: 11 }, { text: '12 серия', callback_data: 12 }],
+            [{ text: '13 серия', callback_data: 13 }, { text: '14 серия', callback_data: 14 }, { text: '15 серия', callback_data: 15 }, { text: '16 серия', callback_data: 16 }],
             [{ text: 'Подарок 🎁', callback_data: 'gift' }]
         ]
 
@@ -28,7 +30,7 @@ const playerBtn = {
 const RefBtn = {
     reply_markup: JSON.stringify({
         inline_keyboard: [
-            [{ text: 'Получить бесплатную карту🎁', url: 'https://my.saleads.pro/s/vela', callback_data: 'Ref' }]
+            [{ text: 'Получить бесплатную карту🎁', url: 'https://2go.pro/f4ro', callback_data: 'Ref' }]
         ]
     })
 }
@@ -36,6 +38,13 @@ const StickerBtn = {
     reply_markup: JSON.stringify({
         inline_keyboard: [
             [{ text: 'Заказать стикер бесплатно👈', url: 'https://2go.pro/v2tF', callback_data: 'sticker' }]
+        ]
+    })
+}
+const CardBtn = {
+    reply_markup: JSON.stringify({
+        inline_keyboard: [
+            [{ text: 'Заказать карту бесплатно👈', url: 'https://2go.pro/f4ro', callback_data: 'Card' }]
         ]
     })
 }
@@ -72,10 +81,9 @@ bot.on('callback_query', async msg => {
     if (data == 3) {
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/7o2o/z9Rvx8QpS')
         await bot.sendMessage(chatId, '3 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Также хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️' , StickerBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️' , StickerBtn)
         
         
-
 
     }
     if (data == 4) {
@@ -86,18 +94,50 @@ bot.on('callback_query', async msg => {
     if (data == 5) {
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/mvu7/cTpLYtEJh')
         await bot.sendMessage(chatId, '5 серия☝', playerBtn)
+        await bot.sendMessage(chatId, '❤️Также хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
     }
     if (data == 6) {
 
-        await bot.sendMessage(chatId, 'Серия в процессе добавления...', playerBtn)
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/Yutv/BKCkhD9S9')
+        await bot.sendMessage(chatId, '6 серия☝', playerBtn)
     }
     if (data == 7) {
 
-        await bot.sendMessage(chatId, 'Серия в процессе добавления...', playerBtn)
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/KRDu/D8bn2brEM')
+        await bot.sendMessage(chatId, '7 серия☝', playerBtn)
     }
     if (data == 8) {
 
-        await bot.sendMessage(chatId, 'Серия в процессе добавления...', playerBtn)
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/VuP8/YvdkPDEtY')
+        await bot.sendMessage(chatId, '8 серия☝', playerBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом, \n хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️' , StickerBtn)
+    }
+    if (data == 9) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/fS47/2H8BsKoh1')
+        await bot.sendMessage(chatId, '9 серия☝', playerBtn)
+    }
+    if (data == 10) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/XQ8v/DDFqi8kR1')
+        await bot.sendMessage(chatId, '10 серия☝', playerBtn)
+    }
+    if (data == 11) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/2rEV/3UcTBKSJo')
+        await bot.sendMessage(chatId, '11 серия☝', playerBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+    }
+    if (data == 12) {
+
+        await bot.sendMessage(chatId, 'В процессе добавления')
+        await bot.sendMessage(chatId, '12 серия☝', playerBtn)
+    }
+    if (data == 13) {
+
+        await bot.sendMessage(chatId, 'В процессе добавления')
+        await bot.sendMessage(chatId, '13 серия☝', playerBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
     }
     if (data === 'gift') {
         await bot.sendPhoto(chatId, 'Photo/7433.jpg')
