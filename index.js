@@ -15,6 +15,7 @@ const Buttons = {
             [{ text: '5 серия', callback_data: 5 }, { text: '6 серия', callback_data: 6 }, { text: '7 серия', callback_data: 7 }, { text: '8 серия', callback_data: 8 }],
             [{ text: '9 серия', callback_data: 9 }, { text: '10 серия', callback_data: 10 }, { text: '11 серия', callback_data: 11 }, { text: '12 серия', callback_data: 12 }],
             [{ text: '13 серия', callback_data: 13 }, { text: '14 серия', callback_data: 14 }, { text: '15 серия', callback_data: 15 }, { text: '16 серия', callback_data: 16 }],
+            [{ text: '17 серия', callback_data: 17 }, { text: '18 серия', callback_data: 18 }, { text: '19 серия', callback_data: 19 }, { text: '20 серия', callback_data: 20 }],
             [{ text: 'Подарок 🎁', callback_data: 'gift' }]
         ]
 
@@ -130,14 +131,35 @@ bot.on('callback_query', async msg => {
     }
     if (data == 12) {
 
-        await bot.sendMessage(chatId, 'В процессе добавления')
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/51BC/1VU9jdPcT')
         await bot.sendMessage(chatId, '12 серия☝', playerBtn)
     }
     if (data == 13) {
 
-        await bot.sendMessage(chatId, 'В процессе добавления')
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/7Y3E/WWDnc69Zm')
         await bot.sendMessage(chatId, '13 серия☝', playerBtn)
         await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+    }
+    if (data == 14) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/76cH/SXmzmgtrr')
+        await bot.sendMessage(chatId, '14 серия☝', playerBtn)
+    }
+    if (data == 15) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/vhqN/X8r1wd6rZ')
+        await bot.sendMessage(chatId, '15 серия☝', playerBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+    }
+    if (data == 16) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/9YWr/SCMD6X69c')
+        await bot.sendMessage(chatId, '16 серия☝', playerBtn)
+    }
+    if (data == 17) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/aBEf/Y5MLca6dm')
+        await bot.sendMessage(chatId, '17 серия☝', playerBtn)
     }
     if (data === 'gift') {
         await bot.sendPhoto(chatId, 'Photo/7433.jpg')
