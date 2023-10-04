@@ -6,7 +6,11 @@ const bot = new TelegramApi(token, { polling: true })
 bot.setMyCommands([
     { command: '/start', description: 'Начало' }
 ])
-
+const members = 0
+bot.command('start', () => {
+    members++
+    console.log (members)
+})
 //Кнопки
 const Buttons = {
     reply_markup: JSON.stringify({
