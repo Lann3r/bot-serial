@@ -7,9 +7,6 @@ bot.setMyCommands([
     { command: '/start', description: 'Начало' }
 ])
 
-bot.command('start', () => {
-    console.log ('+1')
-})
 //Кнопки
 const Buttons = {
     reply_markup: JSON.stringify({
