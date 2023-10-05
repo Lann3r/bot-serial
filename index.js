@@ -161,10 +161,30 @@ bot.on('callback_query', async msg => {
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/aBEf/Y5MLca6dm')
         await bot.sendMessage(chatId, '17 серия☝', playerBtn)
     }
+    if (data == 18) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/E7Tq/EZg7FXFQH')
+        await bot.sendMessage(chatId, '18 серия☝', playerBtn)
+        await bot.sendMessage(chatId, '❤️Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+
+    }
+    if (data == 19) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/UGP2/dxGoqqpYm')
+        await bot.sendMessage(chatId, '19 серия☝', playerBtn)
+    }
+    if (data == 20) {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/esix/7CZnEKqmx')
+        await bot.sendMessage(chatId, '20 серия☝', playerBtn)
+        await bot.sendMessage(chatId, '❤️Хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️' , StickerBtn)
+        
+    }
     if (data === 'gift') {
         await bot.sendPhoto(chatId, 'Photo/7433.jpg')
         await bot.sendMessage(chatId, 'Получи от нас дебетовую карту и стикеры ❤️ для твоего телефона совершенно бесплатно!😱 \n - Вечное бесплатное обслуживание \n - Кэшбэк до 100 % в барабане, 5 % на категории на выбор и 1 % на всё \n - Платежи и переводы без комиссии'
           , RefBtn)
+
     }
    
     // bot.sendMessage(chatId, `Ты нажал кнопку ${data}`)
