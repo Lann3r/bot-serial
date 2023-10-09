@@ -8,6 +8,13 @@ bot.setMyCommands([
 ])
 
 //Кнопки
+const checkBtn = {
+    reply_markup: JSON.stringify({
+        inline_keyboard: [
+            [{ text: 'Проверить подписку', callback_data: 'check' }]
+        ]
+    })
+}
 const Buttons = {
     reply_markup: JSON.stringify({
         inline_keyboard: [
@@ -16,7 +23,7 @@ const Buttons = {
             [{ text: '9 серия', callback_data: 9 }, { text: '10 серия', callback_data: 10 }, { text: '11 серия', callback_data: 11 }, { text: '12 серия', callback_data: 12 }],
             [{ text: '13 серия', callback_data: 13 }, { text: '14 серия', callback_data: 14 }, { text: '15 серия', callback_data: 15 }, { text: '16 серия', callback_data: 16 }],
             [{ text: '17 серия', callback_data: 17 }, { text: '18 серия', callback_data: 18 }, { text: '19 серия', callback_data: 19 }, { text: '20 серия', callback_data: 20 }],
-            [{ text: 'Подарок 🎁', callback_data: 'gift' }]
+            //[{ text: 'Подарок 🎁', callback_data: 'gift' }]
         ]
 
     })
@@ -55,21 +62,34 @@ bot.on('message', async msg => {
     const text = msg.text;
     const chatId = msg.chat.id;
     if (text === '/start') {
-        await bot.sendPhoto(chatId, 'https://avatars.mds.yandex.net/get-kinopoisk-image/10893610/bb9dd071-b96b-4c2b-a5e2-ae653248644b/1920x')
-        await bot.sendMessage(chatId, 'Добро пожаловать на бот Filmer! Выберите серию:', Buttons);
+        const chatId = msg.chat.id
+        let pass = await bot.getChatMember('@kotogramfun', chatId)
+        console.log(pass.status);
+        if (pass.status === 'left' || pass.status === 'creator') {
+            await bot.sendMessage(chatId, 'Чтобы посмотреть серии, нужно подписаться на наш самый милый канал про котиков \n https://t.me/+DNONd2h01Ic2OTIy', checkBtn)
+            return
+        } else if (pass.status === 'member') {
+            await bot.sendMessage(chatId, 'Вы подписаны!')
+            await bot.sendPhoto(chatId, 'https://avatars.mds.yandex.net/get-kinopoisk-image/10893610/bb9dd071-b96b-4c2b-a5e2-ae653248644b/1920x')
+            await bot.sendMessage(chatId, 'Добро пожаловать на бот Filmer! Выберите серию:', Buttons);
 
-
-    } else {
-        await bot.sendMessage(chatId, 'Ваша команда неверна!');
+        }
     }
-
-
 })
-
 // callback кнопки
 bot.on('callback_query', async msg => {
     const data = msg.data;
     const chatId = msg.message.chat.id;
+    let pass = await bot.getChatMember('@kotogramfun', chatId)
+    if (data == 'check') {
+        if (pass.status === 'member' || pass.status === 'creator') {
+            bot.sendMessage(chatId, 'Вы подписаны!')
+            await bot.sendPhoto(chatId, 'https://avatars.mds.yandex.net/get-kinopoisk-image/10893610/bb9dd071-b96b-4c2b-a5e2-ae653248644b/1920x')
+            await bot.sendMessage(chatId, 'Добро пожаловать на бот Filmer! Выберите серию:', Buttons)
+        } else if (pass.status === 'left' ) {
+            bot.answerCallbackQuery(msg.id, "Вы не подписаны")
+        }
+    }
     if (data == 1) {
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/thj7/iJQgJqryJ')
         await bot.sendMessage(chatId, '1 серия☝', playerBtn)
@@ -82,9 +102,9 @@ bot.on('callback_query', async msg => {
     if (data == 3) {
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/7o2o/z9Rvx8QpS')
         await bot.sendMessage(chatId, '3 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️' , StickerBtn)
-        
-        
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️', StickerBtn)
+
+
 
     }
     if (data == 4) {
@@ -95,7 +115,7 @@ bot.on('callback_query', async msg => {
     if (data == 5) {
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/mvu7/cTpLYtEJh')
         await bot.sendMessage(chatId, '5 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Также хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+        await bot.sendMessage(chatId, '❤️Также хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️', CardBtn)
     }
     if (data == 6) {
 
@@ -111,7 +131,7 @@ bot.on('callback_query', async msg => {
 
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/VuP8/YvdkPDEtY')
         await bot.sendMessage(chatId, '8 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом, \n хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️' , StickerBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом, \n хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️', StickerBtn)
     }
     if (data == 9) {
 
@@ -127,7 +147,7 @@ bot.on('callback_query', async msg => {
 
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/2rEV/3UcTBKSJo')
         await bot.sendMessage(chatId, '11 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️', CardBtn)
     }
     if (data == 12) {
 
@@ -138,7 +158,7 @@ bot.on('callback_query', async msg => {
 
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/7Y3E/WWDnc69Zm')
         await bot.sendMessage(chatId, '13 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️', CardBtn)
     }
     if (data == 14) {
 
@@ -149,7 +169,7 @@ bot.on('callback_query', async msg => {
 
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/vhqN/X8r1wd6rZ')
         await bot.sendMessage(chatId, '15 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+        await bot.sendMessage(chatId, '❤️Спасибо что пользуетесь нашим ботом! \n Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️', CardBtn)
     }
     if (data == 16) {
 
@@ -165,7 +185,7 @@ bot.on('callback_query', async msg => {
 
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/E7Tq/EZg7FXFQH')
         await bot.sendMessage(chatId, '18 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️' , CardBtn)
+        await bot.sendMessage(chatId, '❤️Хотим подарить вам бесплатную дебетовую карту с большим кэшбеком!❤️', CardBtn)
 
     }
     if (data == 19) {
@@ -177,17 +197,16 @@ bot.on('callback_query', async msg => {
 
         await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/esix/7CZnEKqmx')
         await bot.sendMessage(chatId, '20 серия☝', playerBtn)
-        await bot.sendMessage(chatId, '❤️Хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️' , StickerBtn)
-        
-    }
-    if (data === 'gift') {
-        await bot.sendPhoto(chatId, 'Photo/7433.jpg')
-        await bot.sendMessage(chatId, 'Получи от нас дебетовую карту и стикеры ❤️ для твоего телефона совершенно бесплатно!😱 \n - Вечное бесплатное обслуживание \n - Кэшбэк до 100 % в барабане, 5 % на категории на выбор и 1 % на всё \n - Платежи и переводы без комиссии'
-          , RefBtn)
+        await bot.sendMessage(chatId, '❤️Хотим подарить вам бесплатный стикер с милым котиком🐱 на ваш телефон для оплаты покупок!❤️', StickerBtn)
 
     }
-   
-    // bot.sendMessage(chatId, `Ты нажал кнопку ${data}`)
+    // if (data == 'gift') {
+    //     await bot.sendPhoto(chatId, 'Photo/7433.jpg')
+    //     await bot.sendMessage(chatId, 'Получи от нас дебетовую карту и стикеры ❤️ для твоего телефона совершенно бесплатно!😱 \n - Вечное бесплатное обслуживание \n - Кэшбэк до 100 % в барабане, 5 % на категории на выбор и 1 % на всё \n - Платежи и переводы без комиссии'
+    //         , RefBtn)
+
+    // }
+
     if (data === 'menu') {
         await bot.sendMessage(chatId, 'Выберите серию', Buttons)
     }
