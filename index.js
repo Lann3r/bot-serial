@@ -28,6 +28,15 @@ const Buttons = {
 
     })
 }
+const ButtonsNew = {
+    reply_markup: JSON.stringify({
+        inline_keyboard: [
+            [{ text: '1 серия', callback_data: '1n' },{ text: '2 серия', callback_data: '2n' },{ text: '3 серия', callback_data: '3n' },{ text: '4 серия', callback_data: '4n' }],
+            [{ text: '5 серия', callback_data: '5n' },{ text: '6 серия', callback_data: '6n' },{ text: '7 серия', callback_data: '7n' },{ text: '8 серия', callback_data: '8n' }],
+            [{text: '9 серия', callback_data: '9n'}]
+        ]
+    })
+}
 const playerBtn = {
     reply_markup: JSON.stringify({
         inline_keyboard: [
@@ -90,6 +99,8 @@ bot.on('callback_query', async msg => {
             bot.sendMessage(chatId, 'Вы подписаны!')
             await bot.sendPhoto(chatId, 'https://avatars.mds.yandex.net/get-kinopoisk-image/10893610/bb9dd071-b96b-4c2b-a5e2-ae653248644b/1920x')
             await bot.sendMessage(chatId, 'Добро пожаловать на бот Filmer! Выберите серию:', Buttons)
+            await bot.sendMessage(chatId, 'Дочки знают:', ButtonsNew)
+
         } else if (pass.status === 'left' ) {
             bot.answerCallbackQuery(msg.id, "Вы не подписаны")
         }
@@ -215,8 +226,70 @@ bot.on('callback_query', async msg => {
     if (data === 'menu') {
         await bot.sendMessage(chatId, 'Выберите серию', Buttons)
     }
+    // Кнопки для "Дочки знают"
+    if (data == '1n') {
 
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/t7SW/dUBnLMzjo')
+        await bot.sendMessage(chatId, '1 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
+    if (data == '2n') {
 
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/rbq9/VeAj2UP6e')
+        await bot.sendMessage(chatId, '2 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
+    if (data == '3n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/DU31/scAPn2nq7')
+        await bot.sendMessage(chatId, '3 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
+    if (data == '4n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/9jXA/ZrTmEZ592')
+        await bot.sendMessage(chatId, '4 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
+    if (data == '5n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/Gcqe/KxcsDCCym')
+        await bot.sendMessage(chatId, '5 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
+    if (data == '6n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/yMnB/o75XEsg44')
+        await bot.sendMessage(chatId, '6 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
+    if (data == '7n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/ii2V/yMm6695cX')
+        await bot.sendMessage(chatId, '7 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
+    if (data == '8n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/DmGb/vJDL89G9G')
+        await bot.sendMessage(chatId, '8 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
+    if (data == '9n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/RNCM/K6eKhwuHN')
+        await bot.sendMessage(chatId, '9 Серия Дочки знают☝', playerBtn)
+        
+        
+    }
 
 
 
