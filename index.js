@@ -33,7 +33,9 @@ const ButtonsNew = {
         inline_keyboard: [
             [{ text: '1 серия', callback_data: '1n' },{ text: '2 серия', callback_data: '2n' },{ text: '3 серия', callback_data: '3n' },{ text: '4 серия', callback_data: '4n' }],
             [{ text: '5 серия', callback_data: '5n' },{ text: '6 серия', callback_data: '6n' },{ text: '7 серия', callback_data: '7n' },{ text: '8 серия', callback_data: '8n' }],
-            [{text: '9 серия', callback_data: '9n'}]
+            [{ text: '9 серия', callback_data: '9n' },{ text: '10 серия', callback_data: '10n' },{ text: '10 серия', callback_data: '10n' },{ text: '11 серия', callback_data: '11n' }],
+            [{ text: '12 серия', callback_data: '12n' },{ text: '13 серия', callback_data: '13n' },{ text: '14 серия', callback_data: '14n' },{ text: '15 серия', callback_data: '15n' }],
+            [{ text: '16 серия', callback_data: '16n' },{ text: '17 серия', callback_data: '17n' },{ text: '18 серия', callback_data: '18n' },{ text: '19 серия', callback_data: '19n' }]
         ]
     })
 }
@@ -300,7 +302,76 @@ bot.on('callback_query', async msg => {
         
         
     }
+    if (data == '10n') {
 
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/vPnP/9zbd82ePD')
+        await bot.sendMessage(chatId, '10 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '11n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/dUw4/8XTQCSbzT')
+        await bot.sendMessage(chatId, '11 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '12n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/euDz/c6LJSEZen')
+        await bot.sendMessage(chatId, '12 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '13n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/UpK6/pLuTccK6s')
+        await bot.sendMessage(chatId, '13 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '14n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/yzKp/Bm9XHYyhb')
+        await bot.sendMessage(chatId, '14 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '15n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/kE38/9E5oPEgL3')
+        await bot.sendMessage(chatId, '15 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '16n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/j8Sc/zapicMPce')
+        await bot.sendMessage(chatId, '16 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '17n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/PhRB/iBsB5LrZd')
+        await bot.sendMessage(chatId, '17 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '18n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/wWnq/eoDP7WLfc')
+        await bot.sendMessage(chatId, '18 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
+    if (data == '19n') {
+
+        await bot.sendMessage(chatId, 'https://cloud.mail.ru/public/o4Mc/akAkDtNoX')
+        await bot.sendMessage(chatId, '19 Серия Дочки знают☝', ButtonNewPlayer)
+        
+        
+    }
 
 
 
